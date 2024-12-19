@@ -26,7 +26,13 @@
             # Your NixOS configuration defined in ./modules/nixos
             ./modules/nixos # ./directory == ./directory/default.nix
 
-            ({config, ...}: {
+            ({...}: {
+              nixpkgs = {
+                config.allowUnfree = true;
+                overlays = [
+                ];
+              };
+
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -36,11 +42,11 @@
                   # Home Manager modules
                 ];
 
-                users."user" = {
+                users."user" = {config, ...}: {
+                  # Note, inside this attrset config refers to the home-manager config variable, not the global nixos one
                   home = {
                     username = "user";
                     homeDirectory = "/home/${config.home.username}";
-                    stateVersion = "24.11";
                   };
 
                   imports = [

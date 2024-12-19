@@ -1,6 +1,28 @@
 * NixOS Template
 
-** NixOS
+** Usage
+
+Update inputs
+
+#+begin_src shell
+nix flake update
+#+end_src
+
+Rebuild and switch (this is what you need 99% of the time)
+
+#+begin_src shell
+nixos-rebuild switch --flake . --use-remote-sudo
+#+end_src
+
+Build
+
+#+begin_src shell
+nixos-rebuild build --flake .
+#+end_src
+
+** Useful links
+
+*** NixOS
 
 Useful links
 
@@ -13,7 +35,8 @@ https://search.nixos.org/options?channel=unstable
 Wiki
 https://wiki.nixos.org/wiki/Main_Page
 
-** Home Manager
+*** Home Manager
 
 Option search
 https://home-manager-options.extranix.com
+
