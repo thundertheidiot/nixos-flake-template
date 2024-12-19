@@ -1,9 +1,19 @@
 * NixOS Template
 
 ** NixOS
+
+Useful links
+
+Package search
 https://search.nixos.org/packages?channel=unstable
+
+Option search
 https://search.nixos.org/options?channel=unstable
+
+Wiki
 https://wiki.nixos.org/wiki/Main_Page
 
 ** Home Manager
+
+Option search
 https://home-manager-options.extranix.com
