@@ -1,0 +1,9 @@
+* NixOS Template
+
+** NixOS
+https://search.nixos.org/packages?channel=unstable
+https://search.nixos.org/options?channel=unstable
+https://wiki.nixos.org/wiki/Main_Page
+
+** Home Manager
+https://home-manager-options.extranix.com
