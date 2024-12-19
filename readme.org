@@ -20,6 +20,33 @@ Build
 nixos-rebuild build --flake .
 #+end_src
 
+** First steps
+
+*** Change your username and hostname
+
+Replace every instance of ="user"=. You can currently find it in:
+- =flake.nix=
+- =modules/nixos/default.nix=
+
+Rename =hosts/hostname= to something else and change the value of =networking.hostName= inside it.
+In =flake.nix= Change the word hostname in =hostname = mkSystem (import ./hosts/hostname);=.
+
+Remember that flakes are built from the git tree, so you need to =git add= the new directory, otherwise nix cannot find the files.
+
+*** Adding a GUI environment
+
+1. Copy =modules/nixos/gaming.nix= to e.g. =modules/nixos/plasma.nix=
+2. Add =./plasma.nix= into the =imports= list in =modules/nixos/default.nix=
+3. Make a new option for enabling plasma
+   (=mynixos.gaming.enable= -> =mynixos.plasma.enable=)
+   Remember to also change the lib.mkIf value as well!
+4. Change the contents of the =config= attrset
+   Search for =plasma= and =sddm= on the NixOS options search
+   =services.desktopManager.plasma6.enable = true;=
+   =services.displayManager.sddm.enable = true;=
+   etc.
+5. Enable your =mynixos.plasma.enable= option in your host config.
+
 ** Useful links
 
 *** NixOS
